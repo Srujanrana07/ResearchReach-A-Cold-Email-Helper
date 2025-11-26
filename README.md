@@ -1,14 +1,64 @@
-# 📄 **ResearchReach: A Cold-Email Helper**  
+<h1 align="center">🔎 ResearchReach: Intelligent Research Paper Matcher & Cold-Email Assistant</h1>
+<p align="center"><i>AI-powered system that analyzes resumes and recommends the most relevant research papers</i></p>
 
-This project is a web-based tool that matches research papers to a candidate’s resume by utilizing Sentence-BERT (SBERT) and cosine similarity. The tool analyzes the candidate's skills, experience, and projects, then identifies the most relevant research papers based on the alignment between the resume and research paper content. By leveraging advanced natural language processing techniques, it enhances the process of finding research papers that best match a candidate’s qualifications, making the search more efficient and accurate.
----  
+<p align="center">
+  <!-- Technology Badges -->
+  <img src="https://img.shields.io/badge/Python-3.8+-blue.svg" />
+  <img src="https://img.shields.io/badge/Flask-Backend-000000?style=flat&logo=flask" />
+  <img src="https://img.shields.io/badge/React-Frontend-61DAFB?style=flat&logo=react" />
+  <img src="https://img.shields.io/badge/SBERT-Embeddings-green?style=flat" />
+  <img src="https://img.shields.io/badge/Cosine%20Similarity-ML%20Model-orange?style=flat" />
+  <img src="https://img.shields.io/badge/Gemini-Email%20Generation-4285F4?style=flat&logo=google" />
+  <img src="https://img.shields.io/badge/License-MIT-yellow.svg" />
+</p>
 
-## 🚀 **Introduction**  
-Finding relevant research papers based on a resume is a challenging task. This tool automates the process by:  
-✅ Extracting skills and projects from the resume  
-✅ Converting both the resume and research papers into vector embeddings  
-✅ Computing similarity scores using cosine similarity  
-✅ Returning the most relevant paper based on the highest similarity score  
+## 📑 Table of Contents
+
+- [🔎 ResearchReach: Intelligent Research Paper Matcher & Cold-Email Assistant](#-researchreach-intelligent-research-paper-matcher--cold-email-assistant)
+- [🌟 Overview](#-overview)
+- [🚀 Introduction](#-introduction)
+- [🔍 How It Works](#-how-it-works)
+  - [1️⃣ Resume Data Extraction](#1️⃣-resume-data-extraction)
+- [🔍 Research Paper Matching System](#-research-paper-matching-system)
+  - [🛠️ Tech Stack](#-tech-stack)
+  - [🏆 Features](#-features)
+  - [🚀 Process Overview](#-process-overview)
+- [📝 1️⃣ Resume Parsing and Skill Extraction](#-1️⃣-resume-parsing-and-skill-extraction)
+- [📜 2️⃣ Research Paper Retrieval](#-2️⃣-research-paper-retrieval)
+- [🔎 3️⃣ Convert to Sentence Embeddings](#-3️⃣-convert-to-sentence-embeddings)
+- [📈 4️⃣ Compute Cosine Similarity](#-4️⃣-compute-cosine-similarity)
+- [💡 5️⃣ Final Output](#-5️⃣-final-output)
+- [✉️ 6️⃣ Email Generation](#️-6️⃣-email-generation)
+- [🤝 Contributors](#-contributors)
+
+
+## 🌟 Overview
+
+**ResearchReach** is an AI-driven web platform that intelligently matches research papers with a candidate’s resume.  
+Using advanced natural language processing techniques such as **Sentence-BERT (SBERT) embeddings** and **cosine similarity**, the system evaluates a user’s:
+
+- Skills  
+- Projects  
+- Technical experience  
+- Research interests  
+
+It then identifies the most relevant research papers from the web and automatically drafts a professional cold-email tailored to the selected paper.
+
+This makes the process of research discovery and outreach faster, more accurate, and significantly more efficient.
+
+---
+
+## 🚀 Introduction
+
+Finding research papers that align precisely with your skills and academic profile can be tedious.  
+**ResearchReach** fully automates this process in four steps:
+
+- ✅ Extracts skills and project details from the resume  
+- ✅ Converts resume and paper text into embeddings using SBERT  
+- ✅ Computes semantic similarity using cosine similarity  
+- ✅ Recommends the most relevant research paper with a high matching score  
+
+Designed for students, researchers, and applicants seeking internships or collaboration opportunities, ResearchReach offers a streamlined, intelligent, and user-friendly experience.  
 
 ---
 
@@ -61,12 +111,34 @@ This information is concatenated into a single text input:
 4. **Compute Cosine Similarity**  
 5. **Generate and Send Email**  
 
-<div style="display: flex; justify-content: center; gap: 20px;">  
-<img src="step1.png" alt="Step 1" width="200"/>  
-<img src="step2.png" alt="Step 2" width="200"/>  
-<img src="step3.png" alt="Step 3" width="200"/>  
-<img src="step4.png" alt="Step 4" width="200"/>  
-</div>  
+<div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+
+  <!-- Step 1 -->
+  <div style="text-align: center;">
+    <img width="350" src="https://github.com/user-attachments/assets/5331eb16-33d7-4a99-8581-580cb34eb6f6" alt="Step 3"/>
+    <p><b>Step 3</b></p>
+  </div>
+  <!-- Step 2 -->
+  <div style="text-align: center;">
+    <img width="350" src="https://github.com/user-attachments/assets/d6f635a8-f9da-40f6-951e-5349e92d1e57" alt="Step 2"/>
+    <p><b>Step 2</b></p>
+  </div>
+
+  <!-- Step 3 -->
+  <div style="text-align: center;">
+    <img width="350" src="https://github.com/user-attachments/assets/f5bd782c-c16b-47a1-bda9-660b7edc8ca7" alt="Step 1"/>
+    <p><b>Step 1</b></p>
+  </div>
+
+  <!-- Step 4 -->
+  <div style="text-align: center;">
+    <img width="350" src="https://github.com/user-attachments/assets/46fd2132-709b-464b-9210-5d8dcdb47d06" alt="Step 4"/>
+    <p><b>Step 4</b></p>
+  </div>
+
+</div>
+
+
 
 ---
 
