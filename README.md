@@ -51,8 +51,8 @@ The platform follows a multi-stage NLP pipeline:
 4. Text Embedding Generation using SBERT  
 5. Semantic Similarity Computation  
 6. Research Paper Recommendation  
-7. Cold Email Generation using Gemini API  
-
+7. Cold Email Generation using Gemini API
+<img width="1344" height="3178" alt="Gemini_Generated_Image_2mojsp2mojsp2moj" src="https://github.com/user-attachments/assets/b6d3ca8f-55ad-4699-98fd-d47f62b99b94" />
 ---
 
 ## Tech Stack
