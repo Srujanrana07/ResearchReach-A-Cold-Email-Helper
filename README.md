@@ -1,6 +1,8 @@
-<h1 align="center">🔎 ResearchReach: Intelligent Research Paper Matcher & Cold-Email Assistant</h1>
-<p align="center"><i>AI-powered system that analyzes resumes and recommends the most relevant research papers</i></p>
+# ResearchReach
 
+AI-powered research paper recommendation and cold-email generation platform using semantic similarity and transformer embeddings.
+
+---
 <p align="center">
   <!-- Technology Badges -->
   <img src="https://img.shields.io/badge/Python-3.8+-blue.svg" />
@@ -12,104 +14,235 @@
   <img src="https://img.shields.io/badge/License-MIT-yellow.svg" />
 </p>
 
-## 📑 Table of Contents
-
-- [🔎 ResearchReach: Intelligent Research Paper Matcher & Cold-Email Assistant](#-researchreach-intelligent-research-paper-matcher--cold-email-assistant)
-- [🌟 Overview](#-overview)
-- [🚀 Introduction](#-introduction)
-- [🔍 How It Works](#-how-it-works)
-  - [1️⃣ Resume Data Extraction](#1️⃣-resume-data-extraction)
-- [🔍 Research Paper Matching System](#-research-paper-matching-system)
-  - [🛠️ Tech Stack](#-tech-stack)
-  - [🏆 Features](#-features)
-  - [🚀 Process Overview](#-process-overview)
-- [📝 1️⃣ Resume Parsing and Skill Extraction](#-1️⃣-resume-parsing-and-skill-extraction)
-- [📜 2️⃣ Research Paper Retrieval](#-2️⃣-research-paper-retrieval)
-- [🔎 3️⃣ Convert to Sentence Embeddings](#-3️⃣-convert-to-sentence-embeddings)
-- [📈 4️⃣ Compute Cosine Similarity](#-4️⃣-compute-cosine-similarity)
-- [💡 5️⃣ Final Output](#-5️⃣-final-output)
-- [✉️ 6️⃣ Email Generation](#️-6️⃣-email-generation)
-- [🤝 Contributors](#-contributors)
+---
 
 
-## 🌟 Overview
+## Overview
 
-**ResearchReach** is an AI-driven web platform that intelligently matches research papers with a candidate’s resume.  
-Using advanced natural language processing techniques such as **Sentence-BERT (SBERT) embeddings** and **cosine similarity**, the system evaluates a user’s:
+ResearchReach is an intelligent research assistance platform that analyzes a candidate’s resume and recommends highly relevant research papers based on semantic similarity. The system leverages transformer-based embeddings and natural language processing techniques to match user profiles with research publications and automatically generate professional cold emails for research outreach.
 
-- Skills  
-- Projects  
-- Technical experience  
-- Research interests  
-
-It then identifies the most relevant research papers from the web and automatically drafts a professional cold-email tailored to the selected paper.
-
-This makes the process of research discovery and outreach faster, more accurate, and significantly more efficient.
+The platform is designed for:
+- Students seeking research internships
+- Researchers exploring relevant publications
+- Professionals looking for academic collaborations
+- Applicants preparing outreach emails for professors and labs
 
 ---
 
-## 🚀 Introduction
+## Key Features
 
-Finding research papers that align precisely with your skills and academic profile can be tedious.  
-**ResearchReach** fully automates this process in four steps:
-
-- ✅ Extracts skills and project details from the resume  
-- ✅ Converts resume and paper text into embeddings using SBERT  
-- ✅ Computes semantic similarity using cosine similarity  
-- ✅ Recommends the most relevant research paper with a high matching score  
-
-Designed for students, researchers, and applicants seeking internships or collaboration opportunities, ResearchReach offers a streamlined, intelligent, and user-friendly experience.  
+- Resume parsing and skill extraction
+- Semantic research paper recommendation
+- SBERT-based embedding generation
+- Cosine similarity ranking system
+- Automated research paper retrieval
+- AI-generated professional cold emails
+- Web-based user interface using React and Flask
 
 ---
 
-## 🔍 **How It Works**  
-The matching process follows a **4-step pipeline**:  
+## System Architecture
 
-### 1️⃣ **Resume Data Extraction**  
-- The system extracts key details from the candidate's resume, including:  
-   - ✅ **Skills** (e.g., Machine Learning, NLP)  
-   - ✅ **Projects** (e.g., Fake News Detection using BERT)  
+The platform follows a multi-stage NLP pipeline:
 
-✅ Example:  
+1. Resume Upload and Parsing  
+2. Skill and Project Extraction  
+3. Research Paper Retrieval  
+4. Text Embedding Generation using SBERT  
+5. Semantic Similarity Computation  
+6. Research Paper Recommendation  
+7. Cold Email Generation using Gemini API  
+
+---
+
+## Tech Stack
+
+| Component | Technology |
+|---|---|
+| Frontend | React.js |
+| Backend | Flask |
+| NLP Framework | Sentence Transformers |
+| Embedding Model | all-MiniLM-L6-v2 |
+| Similarity Metric | Cosine Similarity |
+| Resume Parsing | pdfplumber, spaCy, KeyBERT |
+| Research Paper Retrieval | Semantic Scholar API |
+| Email Generation | Gemini API |
+| Machine Learning Libraries | Scikit-learn |
+
+---
+
+## Workflow
+
+### 1. Resume Parsing
+
+The system extracts technical information from uploaded resumes, including:
+- Skills
+- Projects
+- Research interests
+- Technical domains
+
+Example extracted content:
+
 ```python
-Skills = ["Machine Learning", "Natural Language Processing", "Deep Learning", "Python"]  
-Projects = ["Fake News Detection using BERT", "Text Summarization with LSTM"]  
+skills = [
+    "Machine Learning",
+    "Natural Language Processing",
+    "Deep Learning",
+    "Python"
+]
+
+projects = [
+    "Fake News Detection using BERT",
+    "Text Summarization with LSTM"
+]
 ```
-This information is concatenated into a single text input:
+
+---
+
+### 2. Research Paper Retrieval
+
+Relevant research papers are collected using semantic search and API-based retrieval methods.
+
+Example paper:
+
+**Title:**  
+A Deep Learning Approach to Fake News Detection
+
+**Abstract:**  
+We propose a transformer-based architecture for detecting fake news articles using contextual embeddings and attention mechanisms.
+
+---
+
+### 3. Embedding Generation
+
+The platform uses Sentence-BERT (`all-MiniLM-L6-v2`) to generate dense semantic embeddings for resumes and research paper abstracts.
+
 ```python
-"Machine Learning Natural Language Processing Deep Learning Python Fake News Detection using BERT Text Summarization with LSTM" 
+from sentence_transformers import SentenceTransformer
+
+model = SentenceTransformer('all-MiniLM-L6-v2')
+
+resume_embedding = model.encode(resume_text)
+paper_embedding = model.encode(paper_text)
 ```
 
-# 🔍 **Research Paper Matching System**
+---
 
-## 🛠️ **Tech Stack**
-| Component              | Tool                                      |
-|----------------------- |------------------------------------------|
-| **Frontend**            | React.js                                  |
-| **Backend**             | Flask                                     |
-| **Embedding Model**     | Sentence-BERT (all-MiniLM-L6-v2)         |
-| **Paper Retrieval**     | Semantic Scholar API                      |
-| **Similarity Calculation** | Cosine Similarity (Scikit-learn)         |
-| **Email Generation**     | Gemini API                                |
-| **Paper Download**       | Unpaywall API                             |
+### 4. Similarity Computation
+
+Cosine similarity is used to measure semantic relevance between the resume and research papers.
+
+```python
+from sklearn.metrics.pairwise import cosine_similarity
+
+similarity_score = cosine_similarity(
+    [resume_embedding],
+    [paper_embedding]
+)
+```
+
+Example similarity results:
+
+| Resume vs Paper | Similarity Score |
+|---|---|
+| Paper 1 | 0.92 |
+| Paper 2 | 0.34 |
+
+The paper with the highest score is recommended to the user.
 
 ---
 
-## 🏆 **Features**
-✅ Fast and Efficient: Handles large datasets quickly using SBERT.  
-✅ Accurate Matching: High similarity scoring using cosine similarity.  
-✅ Automated Paper Retrieval: Uses Semantic Scholar to find relevant papers.  
-✅ Secure Data Handling: Ensures data privacy and integrity.  
-✅ Email Automation: Automatically generates internship request emails based on the matching paper.  
+### 5. Cold Email Generation
+
+Once the most relevant paper is identified, the system generates a professional outreach email tailored to:
+- Research domain
+- User skills
+- Paper topic
+- Academic interest
+
+The generated email can be used for:
+- Internship applications
+- Research collaborations
+- Professor outreach
+- Academic networking
 
 ---
 
-## 🚀 **Process Overview**
-1. **Resume Parsing and Skill Extraction**  
-2. **Research Paper Retrieval**  
-3. **Convert to Sentence Embeddings**  
-4. **Compute Cosine Similarity**  
-5. **Generate and Send Email**  
+## Installation
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/Srujanrana07/ResearchReach-A-Cold-Email-Helper.git
+
+cd app #for the backend
+```
+
+---
+
+### Install Backend Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+### Start Backend Server
+
+```bash
+python app.py
+```
+
+---
+
+### Start Frontend
+
+```bash
+cd frontend
+
+npm install
+
+npm start
+```
+
+---
+
+## Project Structure
+
+```bash
+ResearchReach/
+├── app
+│   ├── .gitignore
+│   ├── app.py
+│   ├── email_generator.py
+│   ├── email_sender.py
+│   ├── paper_retrieval.py
+│   ├── requirements.txt
+│   ├── resume_processor.py
+│   ├── similarity.py
+│   └── test.py
+├── front
+│   ├── public
+│   ├── src
+│   │   ├── App.css
+│   │   ├── App.js
+│   │   ├── App.test.js
+│   │   ├── index.css
+│   │   ├── index.js
+│   │   ├── logo.svg
+│   │   ├── reportWebVitals.js
+│   │   ├── setupTests.js
+│   │   └── temp.css
+│   ├── .gitignore
+│   ├── README.md
+│   ├── package-lock.json
+│   └── package.json
+└── README.md
+```
+
+---
+## Picture Based application demo
 
 <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
 
@@ -138,97 +271,32 @@ This information is concatenated into a single text input:
 
 </div>
 
+---
 
+## Applications
+
+ResearchReach can be used for:
+- Research internship applications
+- Academic paper recommendation systems
+- Intelligent academic search platforms
+- AI-powered networking tools
+- Personalized research discovery
 
 ---
 
-## 📝 **1️⃣ Resume Parsing and Skill Extraction**
-The system extracts skills and projects from the resume using `pdfplumber`, `spaCy`, and `KeyBERT`.
+## Future Improvements
 
-**Example Skills:**  
-`Machine Learning, Natural Language Processing, Deep Learning, Python, Fake News Detection using BERT, Text Summarization with LSTM`
-
----
-
-## 📜 **2️⃣ Research Paper Retrieval**
-The system retrieves research papers using Web Scraping with the help of beautifulsoup4 & Spacy 
-
-**Example papers:**  
-
-**📜 Paper 1:**  
-**Title:** "A Deep Learning Approach to Fake News Detection"  
-**Abstract:** "We propose a model based on BERT for detecting fake news articles. Our approach achieves state-of-the-art performance in text classification tasks."  
-
-**📜 Paper 2:**  
-**Title:** "Efficient Image Classification with CNNs"  
-**Abstract:** "We present an optimized CNN model for image classification. The model reduces computational cost while maintaining accuracy."  
+- Multi-paper recommendation engine
+- Research trend analysis
+- Citation-based ranking
+- PDF summarization
+- Research topic clustering
+- User authentication and profile tracking
+- Real-time recommendation updates
 
 ---
 
-## 🔎 **3️⃣ Convert to Sentence Embeddings**
-The system converts text into high-dimensional vector embeddings using **Sentence-BERT** (`all-MiniLM-L6-v2`):
-
-```python
-from sentence_transformers import SentenceTransformer  
-
-embed_model = SentenceTransformer('all-MiniLM-L6-v2')  
-resume_embedding = embed_model.encode(resume_text)  
-paper_1_embedding = embed_model.encode(paper_1_text)  
-paper_2_embedding = embed_model.encode(paper_2_text)  
-```
-## ✅ Example vector embeddings:
-```css
-Resume Embedding → [0.12, -0.08, ..., 0.32]  
-Paper 1 Embedding → [0.11, -0.07, ..., 0.30]  
-Paper 2 Embedding → [0.02, 0.45, ..., -0.12]  
-```
----
-## 📈 4️⃣ Compute Cosine Similarity  
-Cosine similarity measures how similar two vectors are:
-
-\[
-\text{Cosine Similarity} = \frac{A \cdot B}{||A|| \cdot ||B||}
-\]
-
-
----
-
-✅ **Example calculation:**  
-```python
-from sklearn.metrics.pairwise import cosine_similarity  
-
-similarity_1 = cosine_similarity([resume_embedding], [paper_1_embedding])  
-similarity_2 = cosine_similarity([resume_embedding], [paper_2_embedding])  
-```
-
-| **Pair**               | **Similarity Score** | **Result**              |
-|-----------------------|----------------------|-------------------------|
-| **Resume & Paper 1**  | **0.92**              | ✅ High Similarity       |
-| **Resume & Paper 2**  | **0.34**              | ❌ Low Similarity        |
-
----
-
-## 💡 5️⃣ Final Output  
-The paper with the highest similarity score is selected as the most relevant match.
-
-✅ **Most Relevant Paper Found!**  
-**Title:** *"A Deep Learning Approach to Fake News Detection"*  
-**Abstract:** *"We propose a model based on BERT for detecting fake news articles. Our approach achieves state-of-the-art performance in text classification tasks."*  
-**Similarity Score:** **0.92**  
-
----
-
-## ✉️ 6️⃣ Email Generation  
-Once a matching paper is found, the system generates an internship request email using the **Gemini API**.
-
-### **Template Options:**  
-✅ Formal & Professional  
-✅ Technical & Research-Oriented  
-✅ Enthusiastic & Passionate  
-
----
-## 🤝 **Contributors**  
-We would like to extend our heartfelt gratitude to everyone who contributed to this project. Your hard work and dedication made this possible!  
+## Contributors
 
 <table>
   <tr>
@@ -237,25 +305,34 @@ We would like to extend our heartfelt gratitude to everyone who contributed to t
       <br>
       <a href="https://github.com/Srujanrana07"><b>Srujan Rana</b></a>
       <br>
-      🏆 Project Lead, Backend Developer
+      Project Lead, Backend Developer
     </td>
     <td align="center">
       <img src="https://avatars.githubusercontent.com/u/119315259?v=4" width="80" height="80" alt="Contributor 1">
       <br>
       <a href="https://github.com/contributor1"><b>Rudra Prasad Jena</b></a>
       <br>
-      💻 Frontend Developer & 🌐 API Integration
+      Frontend Developer & API Integration
     </td>
     <td align="center">
       <img src="https://avatars.githubusercontent.com/u/161008301?v=4" width="80" height="80" alt="Contributor 1">
       <br>
       <a href="https://github.com/Abhishek-ro"><b>Abhishek Kumar</b></a>
       <br>
-      💻 Frontend Developer
+      Frontend Developer
     </td>
   </tr>
 </table>
 
-🌟 **Want to contribute?**  
-We welcome contributions from the community! If you'd like to improve the project or report issues, feel free to fork the repo and submit a pull request.  
+---
 
+## Contributing
+
+Contributions are welcome.  
+Feel free to fork the repository, open issues, or submit pull requests to improve the platform.
+
+---
+
+## License
+
+This project is licensed under the MIT License.
