@@ -1,8 +1,6 @@
 # ResearchReach
 
 AI-powered research paper recommendation and cold-email generation platform using semantic similarity and transformer embeddings.
-
----
 <p align="center">
   <!-- Technology Badges -->
   <img src="https://img.shields.io/badge/Python-3.8+-blue.svg" />
